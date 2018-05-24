@@ -34,6 +34,7 @@ public class quiz {
 	JButton buttonB;
 	JButton buttonC;
 	JButton buttonD;
+	int currentQuestion = 1;
 	
 	
 	public static void main(String[] args) {
@@ -47,7 +48,11 @@ public class quiz {
 		thisGUI.setResizable(false);
 		thisGUI.setLocationRelativeTo(null);
 		thisGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ListenForButtonOK lForButtonOK = new ListenForButtonOK();
+		ListenForButtonA lForButtonA = new ListenForButtonA();
+		ListenForButtonB lForButtonB = new ListenForButtonB();
+		ListenForButtonC lForButtonC = new ListenForButtonC();
+		ListenForButtonD lForButtonD = new ListenForButtonD();
+		
 
 		
 		panel = new JPanel();
@@ -75,19 +80,22 @@ JMenuBar menuBar = new JMenuBar();
 		
 		buttonA  = new JButton("A");
 		buttonA.setBounds(150, 300, 200, 50);
-		buttonA.addActionListener(lForButtonOK);
+		buttonA.addActionListener(lForButtonA);
 		panel.add(buttonA);
 		
 		buttonB = new JButton("B");
 		buttonB.setBounds(450, 300, 200, 50);
+		buttonB.addActionListener(lForButtonB);
 		panel.add(buttonB);
 		
 		buttonC = new JButton("C");
 		buttonC.setBounds(150, 400, 200, 50);
+		buttonC.addActionListener(lForButtonC);
 		panel.add(buttonC);
 		
 		buttonD = new JButton("D");
 		buttonD.setBounds(450, 400, 200, 50);
+		buttonD.addActionListener(lForButtonD);
 		panel.add(buttonD);
 		
 		
@@ -97,7 +105,6 @@ JMenuBar menuBar = new JMenuBar();
 		
 		
 		label1 = new JLabel();
-		label1.setText("Question goes here");
 		label1.setHorizontalAlignment(JLabel.CENTER);
 		label1.setBounds(0,0,800,50);
 		label1.setOpaque(true);
@@ -107,8 +114,7 @@ JMenuBar menuBar = new JMenuBar();
 		
 		
 		
-
-		
+		getQuestion(currentQuestion);
 		
 		thisGUI.add(panel);
 		thisGUI.setVisible(true);
@@ -116,16 +122,53 @@ JMenuBar menuBar = new JMenuBar();
 		
 		
 	}
-	private class ListenForButtonOK implements ActionListener{
+	private class ListenForButtonA implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
-			System.out.println("youve selected answer a");
+			System.out.println("youve selected answer A");
 		}
 		
 	}
+	private class ListenForButtonB implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			System.out.println("youve selected answer B");
+			
+		}
+	}
+	private class ListenForButtonC implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			System.out.println("youve selected answer C");
+			
+		}
+	}
+	private class ListenForButtonD implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			System.out.println("youve selected answer D");
+			
+		}
+	}
+	public void getQuestion(int x){
+		String a = "What is the age of the earth?";
+		String b = "How far away is the moon?";
+		String c = "what is the largest province in canada?";
+		if (x==1) {
+			label1.setText(a);
+			
+		}
 	
 	
 	
+	
+	}
 }
