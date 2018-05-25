@@ -14,6 +14,7 @@ import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -53,7 +54,7 @@ public class quiz {
 		ListenForButtonC lForButtonC = new ListenForButtonC();
 		ListenForButtonD lForButtonD = new ListenForButtonD();
 		
-
+		JOptionPane.showMessageDialog(thisGUI, "Welcome to the quiz game");
 		
 		panel = new JPanel();
 		panel.setLayout(null);
@@ -78,7 +79,7 @@ JMenuBar menuBar = new JMenuBar();
 		thisGUI.add(menuBar);
 		thisGUI.setJMenuBar(menuBar);
 		
-		buttonA  = new JButton("A");
+		buttonA  = new JButton("A");			
 		buttonA.setBounds(150, 300, 200, 50);
 		buttonA.addActionListener(lForButtonA);
 		panel.add(buttonA);
@@ -146,6 +147,10 @@ JMenuBar menuBar = new JMenuBar();
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			System.out.println("youve selected answer C");
+			if (currentQuestion == 1) {
+				currentQuestion = 2;
+				getQuestion(currentQuestion);
+			}
 			
 		}
 	}
@@ -162,9 +167,40 @@ JMenuBar menuBar = new JMenuBar();
 		String a = "What is the age of the earth?";
 		String b = "How far away is the moon?";
 		String c = "what is the largest province in canada?";
+		String aA = "6000 Years";
+		String aB = "3.3 million years";
+		String aC = "4.5 billion years";
+		String aD = "The Earth has always existed";
+		String bA = "1.1 light years";
+		String bB = "0.7 light years ";
+		String bC = "about 250000 miles";
+		String bD = "nonsense the moon isnt real";
+		String cA = "Alberta";
+		String cB = "Ontario";
+		String cC = "British Columbia";
+		String cD = "Nunavut";
+		
 		if (x==1) {
 			label1.setText(a);
+			buttonA.setText(aA);
+			buttonB.setText(aB);
+			buttonC.setText(aC);
+			buttonD.setText(aD);
+		}
+		if (x==2) {
+			label1.setText(b);
+			buttonA.setText(bA);
+			buttonB.setText(bB);
+			buttonC.setText(bC);
+			buttonD.setText(bD);
 			
+		}
+		if (x==3) {
+			label1.setText(c);
+			buttonA.setText(cA);
+			buttonB.setText(cB);
+			buttonC.setText(cC);
+			buttonD.setText(cD);
 		}
 	
 	
