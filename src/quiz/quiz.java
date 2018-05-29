@@ -129,6 +129,11 @@ JMenuBar menuBar = new JMenuBar();
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
 			System.out.println("youve selected answer A");
+			if (currentQuestion == 4) {
+				currentQuestion = 5;
+				getQuestion(currentQuestion);
+			}
+			
 		}
 		
 	}
@@ -138,7 +143,10 @@ JMenuBar menuBar = new JMenuBar();
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			System.out.println("youve selected answer B");
-			
+			if (currentQuestion == 5) {
+				currentQuestion = 6;
+				getQuestion(currentQuestion);
+			}
 		}
 	}
 	private class ListenForButtonC implements ActionListener{
@@ -151,7 +159,10 @@ JMenuBar menuBar = new JMenuBar();
 				currentQuestion = 2;
 				getQuestion(currentQuestion);
 			}
-			
+			else if (currentQuestion == 2) {
+				currentQuestion = 3;
+				getQuestion(currentQuestion);
+			}
 		}
 	}
 	private class ListenForButtonD implements ActionListener{
@@ -160,13 +171,24 @@ JMenuBar menuBar = new JMenuBar();
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			System.out.println("youve selected answer D");
-			
+			if (currentQuestion == 3) {
+				currentQuestion = 4;
+				getQuestion(currentQuestion);
+			}
+			else if (currentQuestion == 6) {
+				currentQuestion = 7;
+				getQuestion(currentQuestion);
+			}
 		}
 	}
 	public void getQuestion(int x){
 		String a = "What is the age of the earth?";
 		String b = "How far away is the moon?";
 		String c = "what is the largest province in canada?";
+		String d = "What is the smallest country in the world?";
+		String e = "which planet has the fastest rotational period?";
+		String f = "how many dice do you need in order to successfully play Dungeons and Dragons?";
+		String g = "what GPU do I have in my computer at my house?";
 		String aA = "6000 Years";
 		String aB = "3.3 million years";
 		String aC = "4.5 billion years";
@@ -179,6 +201,23 @@ JMenuBar menuBar = new JMenuBar();
 		String cB = "Ontario";
 		String cC = "British Columbia";
 		String cD = "Nunavut";
+		String dA = "Vatican City";
+		String dB = "Switzerland";
+		String dC = "Iceland";
+		String dD = "Peru";
+		String eA = "Neptune";
+		String eB = "Jupiter";
+		String eC = "Mercury";
+		String eD = "venus";
+		String fA = "4";
+		String fB = "6";
+		String fC = "2";
+		String fD = "7";
+		String gA = "1050 ti";
+		String gB = "1060 ti";
+		String gC = "1070 ti";
+		String gD = "1080 ti";
+		
 		
 		if (x==1) {
 			label1.setText(a);
@@ -193,7 +232,6 @@ JMenuBar menuBar = new JMenuBar();
 			buttonB.setText(bB);
 			buttonC.setText(bC);
 			buttonD.setText(bD);
-			
 		}
 		if (x==3) {
 			label1.setText(c);
@@ -201,6 +239,34 @@ JMenuBar menuBar = new JMenuBar();
 			buttonB.setText(cB);
 			buttonC.setText(cC);
 			buttonD.setText(cD);
+		}
+		if (x==4) {
+			label1.setText(d);
+			buttonA.setText(dA);
+			buttonB.setText(dB);
+			buttonC.setText(dC);
+			buttonD.setText(dD);
+		}
+		if (x==5) {
+			label1.setText(e);
+			buttonA.setText(eA);
+			buttonB.setText(eB);
+			buttonC.setText(eC);
+			buttonD.setText(eD);
+		}
+		if (x==6) {
+			label1.setText(f);
+			buttonA.setText(fA);
+			buttonB.setText(fB);
+			buttonC.setText(fC);				
+			buttonD.setText(fD);
+		}
+		if (x==7) {
+			label1.setText(g);
+			buttonA.setText(gA);
+			buttonB.setText(gB);
+			buttonC.setText(gC);				
+			buttonD.setText(gD);
 		}
 	
 	
