@@ -133,9 +133,11 @@ JMenuBar menuBar = new JMenuBar();
 				currentQuestion = 5;
 				getQuestion(currentQuestion);
 			}
-			
+			else if (currentQuestion == 8) {
+				currentQuestion = 9;
+				getQuestion(currentQuestion);
+			}
 		}
-		
 	}
 	private class ListenForButtonB implements ActionListener{
 
@@ -150,7 +152,7 @@ JMenuBar menuBar = new JMenuBar();
 		}
 	}
 	private class ListenForButtonC implements ActionListener{
-
+		
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
@@ -161,6 +163,10 @@ JMenuBar menuBar = new JMenuBar();
 			}
 			else if (currentQuestion == 2) {
 				currentQuestion = 3;
+				getQuestion(currentQuestion);
+			}
+			else if (currentQuestion == 7) {
+				currentQuestion = 8;
 				getQuestion(currentQuestion);
 			}
 		}
@@ -189,6 +195,8 @@ JMenuBar menuBar = new JMenuBar();
 		String e = "which planet has the fastest rotational period?";
 		String f = "how many dice do you need in order to successfully play Dungeons and Dragons?";
 		String g = "what GPU do I have in my computer at my house?";
+		String h = "What pc part company is my personal favorite?";
+		String i = "What is the longest day of the year?";
 		String aA = "6000 Years";
 		String aB = "3.3 million years";
 		String aC = "4.5 billion years";
@@ -217,6 +225,14 @@ JMenuBar menuBar = new JMenuBar();
 		String gB = "1060 ti";
 		String gC = "1070 ti";
 		String gD = "1080 ti";
+		String hA = "Corsair";
+		String hB = "Razer";
+		String hC = "HyperX";
+		String hD = "Cyber Power PC";
+		String iA = "June 20";
+		String iB = "June 21";
+		String iC = "June 22";
+		String iD = "June 23";
 		
 		
 		if (x==1) {
@@ -267,6 +283,20 @@ JMenuBar menuBar = new JMenuBar();
 			buttonB.setText(gB);
 			buttonC.setText(gC);				
 			buttonD.setText(gD);
+		}
+		if (x==8) {
+			label1.setText(h);
+			buttonA.setText(hA);
+			buttonB.setText(hB);
+			buttonC.setText(hC);				
+			buttonD.setText(hD);
+		}
+		if (x==9) {
+			label1.setText(i);
+			buttonA.setText(iA);
+			buttonB.setText(iB);
+			buttonC.setText(iC);				
+			buttonD.setText(iD);
 		}
 	
 	
