@@ -1,27 +1,18 @@
 package quiz;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 
-import GUI_window.ListenForButton;
-import GUI_window.ListenForOpenItem;
-import GUI_window.ListenForText;
+
 
 
 
@@ -35,7 +26,11 @@ public class quiz {
 	JButton buttonB;
 	JButton buttonC;
 	JButton buttonD;
+	JMenuItem printMenuItem;
 	int currentQuestion = 1;
+	JMenuItem restartMenuItem;
+	JMenuItem copyMenuItem;
+	JMenu editMenu;
 	
 	
 	public static void main(String[] args) {
@@ -53,6 +48,10 @@ public class quiz {
 		ListenForButtonB lForButtonB = new ListenForButtonB();
 		ListenForButtonC lForButtonC = new ListenForButtonC();
 		ListenForButtonD lForButtonD = new ListenForButtonD();
+		ListenForOpenItem lForOpenItem = new ListenForOpenItem();
+		ListenForOpenItem1 lForOpenItem1 = new ListenForOpenItem1();
+		ListenForOpenItem2 lForOpenItem2 = new ListenForOpenItem2();
+		ListenForOpenItem3 lForOpenItem3 = new ListenForOpenItem3();
 		
 		JOptionPane.showMessageDialog(thisGUI, "Welcome to the quiz game");
 		
@@ -64,15 +63,23 @@ JMenuBar menuBar = new JMenuBar();
 		
 		fileMenu = new JMenu("About");
 		openMenuItem = new JMenuItem("The makers");
+		openMenuItem.addActionListener(lForOpenItem);
 		fileMenu.add(openMenuItem);
 		fileMenu.addSeparator();
-		JMenuItem printMenuItem = new JMenuItem("The program");
+		printMenuItem = new JMenuItem("The program");
+		printMenuItem.addActionListener(lForOpenItem1);
 		fileMenu.add(printMenuItem);
 		
 		
-		JMenu editMenu = new JMenu("Pause");
-		JMenuItem copyMenuItem = new JMenuItem("Exit");
+		editMenu = new JMenu("Pause");
+		copyMenuItem = new JMenuItem("Jump to end");
+		copyMenuItem.addActionListener(lForOpenItem3);
 		editMenu.add(copyMenuItem);
+		restartMenuItem = new JMenuItem("Restart");
+		restartMenuItem.addActionListener(lForOpenItem2);
+		editMenu.add(restartMenuItem);
+		
+		
 		
 		menuBar.add(fileMenu);
 		menuBar.add(editMenu);
@@ -149,6 +156,10 @@ JMenuBar menuBar = new JMenuBar();
 				currentQuestion = 6;
 				getQuestion(currentQuestion);
 			}
+			else if (currentQuestion == 9) {
+				currentQuestion = 10;
+				getQuestion(currentQuestion);
+			}
 		}
 	}
 	private class ListenForButtonC implements ActionListener{
@@ -185,18 +196,60 @@ JMenuBar menuBar = new JMenuBar();
 				currentQuestion = 7;
 				getQuestion(currentQuestion);
 			}
+			else if (currentQuestion == 10) {
+				JOptionPane.showMessageDialog(thisGUI, "You have completed the quiz please exit");
+			}
+		}
+	}
+	private class ListenForOpenItem implements ActionListener{
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			System.out.println("Clicked open menu");
+			JOptionPane.showMessageDialog(thisGUI, "This game was designed by Jesse Gordon & Pierce Gregor. Jesse is a junior who has designed similar programs in python. Pierce is a senior who has also designed similar programs in various languages. Both attend Palm Desert High School.");
+		}
+	}
+	private class ListenForOpenItem1 implements ActionListener{
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			System.out.println("Clicked open menu");
+			JOptionPane.showMessageDialog(thisGUI, "This Quiz game was designed by Jesse Gordon & Pierce Gregor for a school project. The game is written in Java and utilizes functions action listeners and variables.");
+		}
+	}
+	private class ListenForOpenItem2 implements ActionListener{
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			System.out.println("Clicked open menu");
+			currentQuestion = 1;
+			getQuestion(currentQuestion);
+		}
+	}
+	private class ListenForOpenItem3 implements ActionListener{
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			System.out.println("Clicked open menu");
+			currentQuestion = 10;
+			getQuestion(currentQuestion);
 		}
 	}
 	public void getQuestion(int x){
-		String a = "What is the age of the earth?";
-		String b = "How far away is the moon?";
-		String c = "what is the largest province in canada?";
-		String d = "What is the smallest country in the world?";
-		String e = "which planet has the fastest rotational period?";
-		String f = "how many dice do you need in order to successfully play Dungeons and Dragons?";
-		String g = "what GPU do I have in my computer at my house?";
-		String h = "What pc part company is my personal favorite?";
-		String i = "What is the longest day of the year?";
+		String a = "#1 What is the age of the earth?";
+		String b = "#2 How far away is the moon?";
+		String c = "#3 what is the largest province in canada?";
+		String d = "#4 What is the smallest country in the world?";
+		String e = "#5 which planet has the fastest rotational period?";
+		String f = "#6 how many dice do you need in order to successfully play Dungeons and Dragons?";
+		String g = "#7 what GPU do I have in my computer at my house?";
+		String h = "#8 What pc part company is my personal favorite?";
+		String i = "#9 What is the longest day of the year?";
+		String j = "#10 How many cells are in your body?";
 		String aA = "6000 Years";
 		String aB = "3.3 million years";
 		String aC = "4.5 billion years";
@@ -233,6 +286,10 @@ JMenuBar menuBar = new JMenuBar();
 		String iB = "June 21";
 		String iC = "June 22";
 		String iD = "June 23";
+		String jA = "31 trillion";
+		String jB = "33.8 trillion";
+		String jC = "557 billion";
+		String jD = "37.2 trillion";
 		
 		
 		if (x==1) {
@@ -298,9 +355,18 @@ JMenuBar menuBar = new JMenuBar();
 			buttonC.setText(iC);				
 			buttonD.setText(iD);
 		}
+		if (x==10) {
+			label1.setText(j);
+			buttonA.setText(jA);
+			buttonB.setText(jB);
+			buttonC.setText(jC);				
+			buttonD.setText(jD);
+		}
 	
 	
 	
 	
 	}
+
+
 }
